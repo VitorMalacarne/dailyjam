@@ -1,0 +1,23 @@
+<%= form_with(model: song, local: true) do |form| %>
+  <div>
+    <%= form.label :title, "Título" %>
+    <%= form.text_field :title %>
+  </div>
+
+  <div>
+    <%= form.label :artist, "Artista" %>
+    <%= form.text_field :artist %>
+  </div>
+
+  <div>
+    <%= form.label :instrument, "Instrumento" %>
+    <%= form.text_field :instrument %>
+  </div>
+
+  <div>
+    <%= form.label :notes, "Notas" %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

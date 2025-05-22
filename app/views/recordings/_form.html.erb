@@ -1,0 +1,20 @@
+<%= form_with(model: recording, local: true, html: { multipart: true }) do |form| %>
+  <div>
+    <%= form.label :file, "Arquivo de Gravação (áudio/vídeo)" %>
+    <%= form.file_field :file %>
+  </div>
+
+  <div>
+    <%= form.label :section_id, "Seção (opcional)" %>
+    <%= form.collection_select :section_id, Section.all, :id, :name, include_blank: true %>
+  </div>
+
+  <div>
+    <%= form.label :comments, "Observações" %>
+    <%= form.text_area :comments %>
+  </div>
+
+  <%= form.hidden_field :practice_session_id, value: recording.practice_session_id %>
+
+  <%= form.submit %>
+<% end %>

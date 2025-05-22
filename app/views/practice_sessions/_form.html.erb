@@ -1,0 +1,18 @@
+<%= form_with(model: practice_session, local: true) do |form| %>
+  <div>
+    <%= form.label :practiced_on, "Data da Prática" %>
+    <%= form.date_field :practiced_on %>
+  </div>
+
+  <div>
+    <%= form.label :duration, "Duração (minutos)" %>
+    <%= form.number_field :duration %>
+  </div>
+
+  <div>
+    <%= form.label :notes, "Notas" %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <%= form.submit %>
+<% end %>

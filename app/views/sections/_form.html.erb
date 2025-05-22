@@ -1,0 +1,30 @@
+<%= form_with(model: section, local: true) do |form| %>
+  <div>
+    <%= form.label :name, "Nome da Seção" %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    <%= form.label :start_time, "Início (segundos)" %>
+    <%= form.number_field :start_time %>
+  </div>
+
+  <div>
+    <%= form.label :end_time, "Fim (segundos)" %>
+    <%= form.number_field :end_time %>
+  </div>
+
+  <div>
+    <%= form.label :difficulty, "Dificuldade (1–5)" %>
+    <%= form.number_field :difficulty, in: 1..5 %>
+  </div>
+
+  <div>
+    <%= form.label :notes, "Notas" %>
+    <%= form.text_area :notes %>
+  </div>
+
+  <%= form.hidden_field :song_id, value: section.song_id %>
+
+  <%= form.submit %>
+<% end %>

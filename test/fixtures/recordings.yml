@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  practice_session: one
+  section: one
+  file: MyString
+  comments: MyText
+
+two:
+  practice_session: two
+  section: two
+  file: MyString
+  comments: MyText
