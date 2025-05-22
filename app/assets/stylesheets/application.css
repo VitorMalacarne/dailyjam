@@ -1,10 +1,353 @@
-/*
- * This is a manifest file that'll be compiled into application.css.
- *
- * With Propshaft, assets are served efficiently without preprocessing steps. You can still include
- * application-wide styles in this file, but keep in mind that CSS precedence will follow the standard
- * cascading order, meaning styles declared later in the document or manifest will override earlier ones,
- * depending on specificity.
- *
- * Consider organizing styles into separate files for maintainability.
- */
+/* Dashboard Styling - Tema Vermelho */
+body {
+  background: linear-gradient(135deg, #e6f3ff 0%, #cce7ff 100%);
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  margin: 0;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+/* Container principal */
+.dashboard-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 15px;
+  padding: 30px;
+  box-shadow: 0 10px 30px rgba(52, 144, 220, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+/* Título principal */
+h1 {
+  text-align: center;
+  color: #3490dc;
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(52, 144, 220, 0.1);
+}
+
+/* Seções */
+section {
+  margin-bottom: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  padding: 25px;
+  border-radius: 12px;
+  border-left: 5px solid #3490dc;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+/* Títulos das seções */
+h2 {
+  color: #3490dc;
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Botão - reduzido pela metade */
+.button {
+  background: linear-gradient(135deg, #3490dc 0%, #2779bd 100%);
+  color: white;
+  padding: 3px 6px; /* Reduzido de 6px 12px para metade */
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: 0.75rem; /* Reduzido o tamanho da fonte também */
+  font-weight: 500;
+  margin-left: 15px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(52, 144, 220, 0.3);
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.button:hover {
+  background: linear-gradient(135deg, #2779bd 0%, #1c5a85 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 144, 220, 0.4);
+  color: white;
+  text-decoration: none;
+}
+
+.button:active {
+  transform: translateY(0);
+}
+
+/* Listas centralizadas */
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+li {
+  background: rgba(248, 249, 250, 0.8);
+  padding: 15px 25px;
+  border-radius: 8px;
+  width: 100%;
+  max-width: 600px;
+  text-align: center;
+  border: 1px solid rgba(52, 144, 220, 0.1);
+  transition: all 0.3s ease;
+  color: #333;
+}
+
+li:hover {
+  background: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(52, 144, 220, 0.1);
+  border-color: rgba(52, 144, 220, 0.2);
+}
+
+/* Links */
+a {
+  color: #3490dc;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #2779bd;
+  text-decoration: underline;
+}
+
+/* Texto forte */
+strong {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Texto em itálico */
+em {
+  color: #666;
+  font-style: italic;
+}
+
+/* Separadores */
+hr {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #3490dc, transparent);
+  margin: 30px 0;
+  opacity: 0.3;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+  .dashboard-container {
+    margin: 10px;
+    padding: 20px;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.2rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .button {
+    margin-left: 0;
+    margin-top: 8px;
+  }
+
+  li {
+    padding: 12px 15px;
+    max-width: 100%;
+  }
+}
+
+/* Animações sutis */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+section {
+  animation: fadeIn 0.6s ease-out;
+}
+
+section:nth-child(2) {
+  animation-delay: 0.1s;
+}
+section:nth-child(3) {
+  animation-delay: 0.2s;
+}
+section:nth-child(4) {
+  animation-delay: 0.3s;
+}
+/* Estilos para formulários - adicionar ao application.css */
+
+/* Formulário de músicas */
+.song-form {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-label {
+  display: block;
+  font-weight: 600;
+  color: #3490dc;
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: 12px 15px;
+  border: 2px solid #e1e5e9;
+  border-radius: 8px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: #3490dc;
+  box-shadow: 0 0 0 3px rgba(52, 144, 220, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+  font-family: inherit;
+}
+
+.form-actions {
+  text-align: center;
+  margin-top: 30px;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* Variações do botão */
+.button-primary {
+  background: linear-gradient(135deg, #3490dc 0%, #2779bd 100%);
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.button-secondary {
+  background: linear-gradient(135deg, #6c757d 0%, #545b62 100%);
+  padding: 12px 24px;
+  font-size: 1rem;
+}
+
+.button-danger {
+  background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.button-secondary:hover {
+  background: linear-gradient(135deg, #545b62 0%, #3d4449 100%);
+}
+
+.button-danger:hover {
+  background: linear-gradient(135deg, #c82333 0%, #a71e2a 100%);
+}
+
+/* Mensagens de erro */
+.error-messages {
+  background: #f8d7da;
+  border: 1px solid #f5c6cb;
+  color: #721c24;
+  padding: 15px;
+  border-radius: 8px;
+  margin-bottom: 25px;
+}
+
+.error-messages h3 {
+  margin: 0 0 10px 0;
+  font-size: 1.1rem;
+}
+
+.error-messages ul {
+  margin: 0;
+  padding-left: 20px;
+  list-style-type: disc;
+}
+
+.error-messages li {
+  padding: 0;
+  margin: 5px 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  transform: none;
+  width: auto;
+  max-width: none;
+  text-align: left;
+}
+
+/* Detalhes da música */
+.song-details {
+  background: rgba(248, 249, 250, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.song-details p {
+  margin: 10px 0;
+  color: #333;
+}
+
+.notes-content {
+  background: rgba(255, 255, 255, 0.9);
+  padding: 15px;
+  border-radius: 6px;
+  margin-top: 10px;
+  border-left: 4px solid #3490dc;
+}
+
+/* Responsividade para formulários */
+@media (max-width: 768px) {
+  .song-form {
+    padding: 0 15px;
+  }
+
+  .form-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .button-primary,
+  .button-secondary {
+    width: 100%;
+    max-width: 300px;
+  }
+}

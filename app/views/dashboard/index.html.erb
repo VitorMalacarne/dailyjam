@@ -1,42 +1,46 @@
-<h1>Dashboard</h1>
-
-<section>
-  <h2>🎵 Músicas</h2>
-  <ul>
-    <% @songs.each do |song| %>
-      <li>
-        <strong><%= link_to song.title, song_path(song) %></strong>
-        - <%= song.artist %> (<%= song.instrument %>)
-      </li>
-    <% end %>
-  </ul>
-</section>
-
-<hr>
-
-<section>
-  <h2>📆 Últimas Sessões de Prática</h2>
-  <ul>
-    <% @recent_practice_sessions.each do |session| %>
-      <li>
-        <%= link_to session.practiced_on.strftime("%d/%m/%Y"), practice_session_path(session) %>
-        – <%= session.duration %> min
-        <%= "(#{session.notes.truncate(40)})" if session.notes.present? %>
-      </li>
-    <% end %>
-  </ul>
-</section>
-
-<hr>
-
-<section>
-  <h2>🎯 Seções Mais Difíceis</h2>
-  <ul>
-    <% @difficult_sections.each do |section| %>
-      <li>
-        <%= section.name %> (Média: <%= section.avg_accuracy.to_i %>%)
-        <em>– <%= link_to section.song.title, song_path(section.song) %></em>
-      </li>
-    <% end %>
-  </ul>
-</section>
+<div class="dashboard-container">
+  <h1>Dashboard</h1>
+  <section>
+    <h2>
+      🎵 Músicas
+      <%= link_to "➕ Nova Música", new_song_path, class: "button" %>
+    </h2>
+    <ul>
+      <% @songs.each do |song| %>
+        <li>
+          <strong><%= link_to song.title, song_path(song) %></strong>
+          - <%= song.artist %> (<%= song.instrument %>)
+        </li>
+      <% end %>
+    </ul>
+  </section>
+  
+  <hr>
+  
+  <section>
+    <h2>📆 Últimas Sessões de Prática</h2>
+    <ul>
+      <% @recent_practice_sessions.each do |session| %>
+        <li>
+          <%= link_to session.practiced_on.strftime("%d/%m/%Y"), practice_session_path(session) %>
+          – <%= session.duration %> min
+          <%= "(#{session.notes.truncate(40)})" if session.notes.present? %>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+  
+  <hr>
+  
+  <section>
+    <h2>🎯 Seções Mais Difíceis</h2>
+    <ul>
+      <% @difficult_sections.each do |section| %>
+        <li>
+          <%= section.name %> (Média: <%= section.avg_accuracy.to_i %>%)
+          <em>– <%= link_to section.song.title, song_path(section.song) %></em>
+        </li>
+      <% end %>
+    </ul>
+  </section>
+</div>

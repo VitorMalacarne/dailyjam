@@ -1,23 +1,40 @@
-<%= form_with(model: song, local: true) do |form| %>
-  <div>
-    <%= form.label :title, "Título" %>
-    <%= form.text_field :title %>
+<%= form_with(model: song, local: true, class: "song-form") do |form| %>
+  <% if song.errors.any? %>
+    <div class="error-messages">
+      <h3>⚠️ Erro ao salvar a música:</h3>
+      <ul>
+        <% song.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :title, "Título *", class: "form-label" %>
+    <%= form.text_field :title, class: "form-input", placeholder: "Ex: Fundo da Grota" %>
   </div>
 
-  <div>
-    <%= form.label :artist, "Artista" %>
-    <%= form.text_field :artist %>
+  <div class="form-group">
+    <%= form.label :artist, "Artista *", class: "form-label" %>
+    <%= form.text_field :artist, class: "form-input", placeholder: "Ex: Baitaca" %>
   </div>
 
-  <div>
-    <%= form.label :instrument, "Instrumento" %>
-    <%= form.text_field :instrument %>
+  <div class="form-group">
+    <%= form.label :instrument, "Instrumento *", class: "form-label" %>
+    <%= form.text_field :instrument, class: "form-input", placeholder: "Ex: Piano, Violão, Bateria" %>
   </div>
 
-  <div>
-    <%= form.label :notes, "Notas" %>
-    <%= form.text_area :notes %>
+  <div class="form-group">
+    <%= form.label :notes, "Notas (opcional)", class: "form-label" %>
+    <%= form.text_area :notes, class: "form-textarea", rows: 4, 
+                       placeholder: "Observações sobre a música, dificuldades, lembretes..." %>
   </div>
 
-  <%= form.submit %>
+  <div class="form-actions">
+    <%= form.submit(song.persisted? ? "💾 Atualizar Música" : "➕ Criar Música", 
+                    class: "button button-primary") %>
+    <%= link_to "❌ Cancelar", (song.persisted? ? song : root_path), 
+                class: "button button-secondary" %>
+  </div>
 <% end %>
